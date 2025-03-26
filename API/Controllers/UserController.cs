@@ -5,12 +5,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
-[ApiController]
-[Route("api/[controller]")] // /api/users
-public class UserController(DataContext context) : ControllerBase
+public class UserController(DataContext context) : BaseApiController
 {
     [HttpGet]
-    public async Task <ActionResult<IEnumerable<AppUser>>> GetUsers()
+    public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
     {
         return await context.Users.ToListAsync();
     }
@@ -19,6 +17,6 @@ public class UserController(DataContext context) : ControllerBase
     public async Task<ActionResult<AppUser>> GetUser(int id)
     {
         var user = await context.Users.FindAsync(id);
-        return  user != null ? user : NotFound();
+        return user != null ? user : NotFound();
     }
 }
