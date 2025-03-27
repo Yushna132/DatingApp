@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Udemy\\DatingApp\\API\\API.csproj": {}
+    "D:\\Udemy\\DatingApp\\API\\API.csproj": {}
   },
   "projects": {
-    "d:\\Udemy\\DatingApp\\API\\API.csproj": {
+    "D:\\Udemy\\DatingApp\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Udemy\\DatingApp\\API\\API.csproj",
+        "projectUniqueName": "D:\\Udemy\\DatingApp\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "d:\\Udemy\\DatingApp\\API\\API.csproj",
+        "projectPath": "D:\\Udemy\\DatingApp\\API\\API.csproj",
         "packagesPath": "C:\\Users\\ygobi\\.nuget\\packages\\",
-        "outputPath": "d:\\Udemy\\DatingApp\\API\\obj\\",
+        "outputPath": "D:\\Udemy\\DatingApp\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.3, )"
@@ -61,6 +65,10 @@
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[9.0.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.7.0, )"
             }
           },
           "imports": [
