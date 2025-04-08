@@ -18,24 +18,25 @@ public class AccountController(DataContext context, ITokenService tokenService) 
     {
         if (await UserExists(registerDto.Username)) return BadRequest("UserName is taken");
 
-        using var hmac = new HMACSHA512();
-        AppUser user = new AppUser
-        {
-            UserName = registerDto.Username.ToLower(),
-            PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-            PasswordSalt = hmac.Key
-        };
+        return Ok();
+        // using var hmac = new HMACSHA512();
+        // AppUser user = new AppUser
+        // {
+        //     UserName = registerDto.Username.ToLower(),
+        //     PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
+        //     PasswordSalt = hmac.Key
+        // };
 
-        //to add to database
-        context.Users.Add(user);
-        await context.SaveChangesAsync();
+        // //to add to database
+        // context.Users.Add(user);
+        // await context.SaveChangesAsync();
 
-        return new UserDto
-        {
-            UserName = user.UserName,
-            Token = tokenService.CreateToken(user)
+        // return new UserDto
+        // {
+        //     UserName = user.UserName,
+        //     Token = tokenService.CreateToken(user)
 
-        };
+        // };
     }
 
     [HttpPost("login")]
@@ -54,7 +55,8 @@ public class AccountController(DataContext context, ITokenService tokenService) 
             if (computeHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
         }
 
-        return new UserDto{
+        return new UserDto
+        {
             UserName = user.UserName,
             Token = tokenService.CreateToken(user)
         };
